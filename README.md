@@ -19,25 +19,32 @@ _TODO: update this README_
 Connect any BME280 hardware, add the BME280 library to your project and follow this simple example:
 
 ```
-Adafruit_AlphaNum_4 display(0x70, Wire);
+BME280 sensor(0x76, Wire);
 
 void setup()
 {
-  display.begin();
+  sensor.begin();
 
-  display.set_brightness(0x7);
-  display.set_blink_rate(BME280::blm_half);
+  sensor.setup_sensor(
+      BME280::mode_forced,
+      BME280::sampling_x16,
+      BME280::sampling_x16,
+      BME280::sampling_x16,
+      BME280::filter_off,
+      BME280::standby_ms_0_5
+    );
 
-  display.write_digit_raw(0, 0x0f0f);
-  display.write_digit_raw(1, 0xf0f0);
-  display.write_digit_raw(2, 0xaaaa);
-  display.write_digit_raw(3, 0x5555);
-
-  display.show_data();
+  Serial.begin();
 }
 
 void loop()
 {
+  sensor.make_forced_measurement();
+
+  Serial.println(String::format("t: %f, p: %f, h: %f",
+    sensor.get_temperature(), sensor.get_pressure(), sensor.get_humidity()));
+
+  delay(1000);
 }
 ```
 

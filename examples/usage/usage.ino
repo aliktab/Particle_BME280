@@ -23,8 +23,24 @@ void setup()
 {
   sensor.begin();
 
+  sensor.setup_sensor(
+      BME280::mode_forced,
+      BME280::sampling_x16,
+      BME280::sampling_x16,
+      BME280::sampling_x16,
+      BME280::filter_off,
+      BME280::standby_ms_0_5
+    );
+
+  Serial.begin();
 }
 
 void loop()
 {
+  sensor.make_forced_measurement();
+
+  Serial.println(String::format("t: %f, p: %f, h: %f",
+    sensor.get_temperature(), sensor.get_pressure(), sensor.get_humidity()));
+
+  delay(1000);
 }
