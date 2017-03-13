@@ -118,10 +118,12 @@ void BME280::make_forced_measurement()
   // measurement and we need to set it to forced mode once at this point, so
   // it will take the next measurement and then return to sleep again.
   // In normal mode simply does new measurements periodically.
+
   if (m_meas_reg.mode == mode_forced)
   {
     // set to forced mode, i.e. "take next measurement"
     write8(BME280_REGISTER_CONTROL, m_meas_reg.get());
+
     // wait until measurement has been completed, otherwise we would read
     // the values from the last measurement
     while (read8(BME280_REGISTER_STATUS) & 0x08)

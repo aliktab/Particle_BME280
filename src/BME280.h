@@ -98,7 +98,10 @@ public:
   };
 
   // Constructor: I2C address, I2C interface
-  BME280(uint8_t _addr, TwoWire & _i2c);
+  BME280(
+      uint8_t   _addr = 0x76,
+      TwoWire & _i2c  = Wire
+    );
 
   bool begin();
 
