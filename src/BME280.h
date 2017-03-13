@@ -243,21 +243,3 @@ protected:
 };
 
 
-
-
-
-class Adafruit_BME280 {
-
-
-    private:
-        void readCoefficients(void);
-        bool isReadingCalibration(void);
-        uint8_t spixfer(uint8_t x);
-
-
-        int32_t   _sensorID;
-
-
-};
-
-
