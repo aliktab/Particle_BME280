@@ -1,3 +1,2 @@
-BASEDIR=$(dirname "$0")
-cd "$BASEDIR"
+cd $(dirname "$0")
 particle library publish
