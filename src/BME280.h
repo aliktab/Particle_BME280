@@ -1,7 +1,7 @@
 #pragma once
 
 /*
-  Original library: https://github.com/adafruit/Adafruit_BME280_Library
+  Based on: https://github.com/adafruit/Adafruit_BME280_Library
 
   Copyright (C) 2014 Alik <aliktab@gmail.com> All rights reserved.
 
