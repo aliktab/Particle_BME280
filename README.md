@@ -15,7 +15,7 @@ void setup()
 {
   sensor.begin();
 
-  sensor.setup_sensor(
+  sensor.set_sensor_mode(
       BME280::mode_forced,
       BME280::sampling_x16,
       BME280::sampling_x16,

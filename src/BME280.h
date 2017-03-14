@@ -106,7 +106,7 @@ public:
   bool begin();
 
   // setup sensor with given parameters / settings
-  void setup_sensor(
+  void set_sensor_mode(
       SensMode     _mode           = mode_normal,
       SensSampling _temp_sampling  = sampling_x16,
       SensSampling _press_sampling = sampling_x16,

@@ -82,12 +82,12 @@ bool BME280::begin()
 
   read_calib_data(); // read trimming parameters, see DS 4.2.2
 
-  setup_sensor(); // use defaults
+  set_sensor_mode(); // use defaults
 
   return true;
 }
 
-void BME280::setup_sensor(
+void BME280::set_sensor_mode(
     SensMode     _mode,
     SensSampling _temp_sampling,
     SensSampling _press_sampling,
