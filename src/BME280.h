@@ -97,12 +97,13 @@ public:
     standby_ms_1000 = 0b101
   };
 
-  // Constructor: I2C address, I2C interface
+  // сonstructor: I2C address, I2C interface
   BME280(
       uint8_t   _addr = 0x76,
       TwoWire & _i2c  = Wire
     );
 
+  // initialize chip and i2c interface if needed
   bool begin();
 
   // setup sensor with given parameters / settings
@@ -126,11 +127,11 @@ public:
 
   float get_altitude();
 
-  // Calculates the altitude (in meters) from the specified atmospheric pressure (in hPa), and sea-level pressure (in hPa).
+  // сalculates the altitude (in meters) from the specified atmospheric pressure (in hPa), and sea-level pressure (in hPa).
   //    _sea_level  sea-level pressure in hPa
   void set_sea_level(float _sea_level);
 
-  // Calculates the pressure at sea level (in hPa) from the specified altitude (in meters), and atmospheric pressure (in hPa).
+  // сalculates the pressure at sea level (in hPa) from the specified altitude (in meters), and atmospheric pressure (in hPa).
   //    _altitude   altitude in meters
   //    _pressure   atmospheric pressure in hPa
   void set_sea_level(float _altitude, float _pressure);
