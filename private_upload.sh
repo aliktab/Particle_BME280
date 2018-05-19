@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 cd $(dirname "$0")
 
 # we have to make separate folder and copy lib files there because of
